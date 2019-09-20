@@ -1,0 +1,16 @@
+version: '3'
+services:
+
+ #Nginx Service
+  webserver:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: webserver
+    tty: true
+    ports:
+      - "8080:80"
+      - "443:443"
+      - "9000:9000"
+    volumes:
+      - ./ui/src/:/var/www/html
